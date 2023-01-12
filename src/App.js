@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux';
+import { Routes, Route, Link } from 'react-router-dom';
+import Counter from './pages/counter'
+import Products from './pages/product'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  let favorites = useSelector(state => state.favorites);
+
+  return (<>
+
+    <h1>FAvorites: {favorites.favorites.length}</h1>
+    <div>
+      <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <li><Link to='/counter'>Counter</Link></li>
+        <li><Link to='/products'>Products</Link></li>
+      </ul>
     </div>
-  );
+    <Routes>
+      <Route path='/counter' element={<Counter />} />
+      <Route path='/products' element={<Products />} />
+    </Routes>
+  </>)
+
 }
 
-export default App;
+export default App
