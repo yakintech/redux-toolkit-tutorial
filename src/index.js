@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import counterReducer from './store/counterSlice'
 import favoriteReducer from './store/favoriteSlice'
+import { booksReducer } from './store/reducers/bookReducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,7 +14,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore({
   reducer: {
     counter: counterReducer,
-    favorites: favoriteReducer
+    favorites: favoriteReducer,
+    booksReducer: booksReducer
   }
 })
 
