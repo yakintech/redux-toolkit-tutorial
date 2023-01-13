@@ -6,12 +6,14 @@ import BookList from './pages/book/BookList';
 import Counter from './pages/counter'
 import Products from './pages/product'
 import AddFavoritesById from './pages/product/AddFavoritesById';
+import ToDoList from './pages/todos/ToDoList';
 import { loadProducts } from './store/favoriteSlice';
 
 function App() {
 
   let favorites = useSelector(state => state.favorites);
   let state = useSelector(state => state);
+  
   
 
   console.log('State ', state);
@@ -34,6 +36,7 @@ function App() {
         <li><Link to='/addtofav'>Add To Fav</Link></li>
         <li><Link to='/books'>Books</Link></li>
         <li><Link to='/addbook'>Add New Book</Link></li>
+        <li><Link to='/todos'>Todos</Link></li>
       </ul>
     </div>
     <Routes>
@@ -42,7 +45,7 @@ function App() {
       <Route path='/addtofav' element={<AddFavoritesById />} />
       <Route path='/books' element={<BookList />} />
       <Route path='/addbook' element={<AddBook />} />
-
+      <Route path='/todos' element={<ToDoList />} />
     </Routes>
   </>)
 

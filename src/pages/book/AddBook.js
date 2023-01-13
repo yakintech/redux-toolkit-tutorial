@@ -20,7 +20,6 @@ function AddBook() {
             author: author
         }
 
-
         dispatch(addNewBook(newBook));
 
     }

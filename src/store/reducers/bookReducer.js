@@ -1,4 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer, current } from "@reduxjs/toolkit";
 import { addNewBook, deleteBook } from "../actions/booksAction";
 
 const initialState = {
@@ -8,8 +8,11 @@ const initialState = {
 
 export const booksReducer = createReducer(initialState, (builder) => {
 
+
     builder
         .addCase(addNewBook, (state, action) => {
+
+            console.log('State !!', current(state));
             state.books.push(action.payload);
         })
 
@@ -19,4 +22,6 @@ export const booksReducer = createReducer(initialState, (builder) => {
     })
 
 })
+
+
 

@@ -43,3 +43,5 @@ export const loadProducts = () => (dispatch) => {
             dispatch(load(res.data));
         })
 }
+
+
